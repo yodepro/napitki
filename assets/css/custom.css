@@ -48,7 +48,9 @@ body {
     text-align: center;
     line-height: 48px;
 }
-
+span.ruble-icon {
+    font-family: "Helvetica Neue", sans-serif;
+}
 .common-btn {
     width: fit-content;
     width: -moz-fit-content;
@@ -63,6 +65,7 @@ body {
     font-weight: bold;
     font-size: 32px;
     line-height: 32px;
+    box-shadow: none!important;
 }
 
 .common-owl {
