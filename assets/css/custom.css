@@ -448,21 +448,22 @@ footer {
     cursor: pointer;
     right: 15px;
 }
+.information {
+    padding: 75px 0px;
+}
 
 .information__content {
     width: 100%;
 }
-
-.information {
-    padding: 50px 0px;
+.information__tile {
+    margin-bottom: 50px;
 }
-
 .information__column__title {
     margin-bottom: 15px;
 }
 
 .information__row {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .information__column {
@@ -500,7 +501,7 @@ footer {
     position: relative;
     width: 100%;
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 50px;
     height: 500px;
 }
 
@@ -559,6 +560,19 @@ footer {
     margin-top: 5px;
     font-size: 14px;
 }
+.item__price__li {
+    margin-bottom: 10px;
+}
 .item__price__li__volume {
     font-size: 14px;
+}
+.item__price__li__minus, .item__price__li__plus {
+    cursor: pointer;
+}
+.item__price__li__right {
+    width: 75px;
+}
+.item__price__li__inactive {
+    opacity: 0.3;
+    cursor: default;
 }
