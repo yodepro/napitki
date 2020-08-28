@@ -89,9 +89,6 @@ span.ruble-icon {
     justify-content: center;
     align-items: center;
     box-shadow: none !important;
-}
-
-.common-btn span {
     font-size: 32px;
     line-height: 32px;
     font-family: 'Bebas Neue';
@@ -560,5 +557,8 @@ footer {
 
 .map__sidebar__text {
     margin-top: 5px;
+    font-size: 14px;
+}
+.item__price__li__volume {
     font-size: 14px;
 }
