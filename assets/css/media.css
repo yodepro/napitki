@@ -107,4 +107,22 @@
     footer {
         padding-bottom: 0;
     }
+    .information__row {
+        flex-direction: column;
+    }
+    .information__column {
+        flex: auto;
+        margin-bottom: 20px;
+    }
+    .map__sidebar {
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+    .map__block {
+        height: auto;
+    }
+    .map__block > ymaps{
+        height: 300px!important;
+    }
 }
