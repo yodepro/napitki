@@ -448,6 +448,7 @@ footer {
     cursor: pointer;
     right: 15px;
 }
+
 .information {
     padding: 75px 0px;
 }
@@ -455,9 +456,11 @@ footer {
 .information__content {
     width: 100%;
 }
+
 .information__tile {
     margin-bottom: 50px;
 }
+
 .information__column__title {
     margin-bottom: 15px;
 }
@@ -548,9 +551,11 @@ footer {
     padding-top: 3px;
     width: 10px;
 }
+
 .map__sidebar__item__right {
     margin-left: 20px;
 }
+
 .map__sidebar__item__title {
     font-weight: bold;
     font-size: 16px;
@@ -560,19 +565,107 @@ footer {
     margin-top: 5px;
     font-size: 14px;
 }
+
 .item__price__li {
     margin-bottom: 10px;
 }
+
 .item__price__li__volume {
     font-size: 14px;
 }
+
 .item__price__li__minus, .item__price__li__plus {
     cursor: pointer;
 }
+
 .item__price__li__right {
     width: 75px;
 }
+
 .item__price__li__inactive {
     opacity: 0.3;
     cursor: default;
+}
+
+.product {
+    padding: 70px 0px;
+}
+
+.product-wrap {
+    width: 100%;
+}
+
+.product__left-gallery {
+    margin-top: 20px;
+    padding-left: 55px;
+    padding-right: 55px;
+    position: relative;
+
+}
+
+.product__left-gallery .owl-stage-outer {
+    z-index: 2;
+}
+
+.product__left {
+    width: 50%;
+}
+
+.product__left-gallery .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.product__left-gallery .owl-prev:after {
+    font-family: 'FontAwesome';
+    content: '\f104';
+    font-size: 32px;
+    color: var(--dark-grey);
+}
+
+.product__left-gallery .owl-next:after {
+    font-family: 'FontAwesome';
+    content: '\f105';
+    font-size: 32px;
+    color: var(--dark-grey);
+}
+
+.product__right {
+    width: 50%;
+    padding-left: 40px;
+}
+
+.product__title {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.product__text {
+    margin-bottom: 30px;
+}
+
+.product__right .item__price {
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--dark);
+}
+.product__id {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 30px;
+    color: var(--dark-grey);
+}
+.product__btn {
+    margin-bottom: 30px;
+}
+.product__item {
+    max-width: 285px;
+    margin-bottom: 30px;
 }

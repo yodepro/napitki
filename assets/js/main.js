@@ -403,7 +403,7 @@
         }
     });
     // Логика каруселей на главной
-    var owl = $('.owl-carousel').owlCarousel({
+    var owl = $('.common-owl').owlCarousel({
         loop: false,
         margin: 32,
         mouseDrag: true,
@@ -422,6 +422,27 @@
             },
             900: {
                 items: 3
+            },
+        }
+    })
+    var gallery = $('.product__left-gallery').owlCarousel({
+        loop: true,
+        margin: 32,
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: true,
+        nav: true,
+        autoWidth: true,
+        navText: '',
+        responsive: {
+            0: {
+                items: 2
+            },
+            600: {
+                items: 3
+            },
+            900: {
+                items: 4
             },
         }
     })

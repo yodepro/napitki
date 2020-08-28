@@ -20,13 +20,18 @@
     .common-owl {
         display: none !important;
     }
+    .product__left img {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 991px) {
     .header__logo__img {
         height: 48px;
     }
-
+    .product__social li {
+        margin-bottom: 10px;
+    }
     .menu {
         display: none !important;
     }
@@ -124,5 +129,17 @@
     }
     .map__block > ymaps{
         height: 300px!important;
+    }
+    .product-wrap {
+        flex-direction: column;
+    }
+    .product__left, .product__right {
+        width: 100%;
+    }
+    .product__left {
+        margin-bottom: 50px;
+    }
+    .product__right {
+        padding-left: 0;
     }
 }
