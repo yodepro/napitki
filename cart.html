@@ -74,10 +74,50 @@
                                 <a href="#" class="menu__item__link">Снеки, закуски</a>
                             </li>
                         </ul>
-                        <a href="#" class="cart d-flex justify-content-center align-items-center">
-                            <span class="cart__text">Корзина (0)</span>
-                            <i class="fa fa-shopping-basket cart__icon"></i>
-                        </a>
+                        <div class="header__cart-wrap">
+                            <a href="#" class="cart d-flex justify-content-center align-items-center">
+                                <span class="cart__text">Корзина (0)</span>
+                                <i class="fa fa-shopping-basket cart__icon"></i>
+                            </a>
+                            <div class="cart-hover">
+                                <h3 class="common-title common-h3">Корзина</h3>
+                                <ul class="cart-hover__list">
+                                    <li class="cart-hover__list__item d-flex justify-content-between align-items-center">
+                                        <img src="assets/img/cart/cart-1.jpg" alt="Фото товара">
+                                        <div class="cart-hover__text-block">
+                                            <span class="cart-hover__text-block__text cart-hover__text-block__name">Название товара</span>
+                                            <span class="cart-hover__text-block__text">Количество: 1шт</span>
+                                            <span class="cart-hover__text-block__text cart-hover__text-block__price">180 руб</span>
+                                        </div>
+                                        <img src="assets/img/icons/close.svg" class="cart-hover__list__item__delete" alt="Удалить">
+                                    </li>
+                                    <li class="cart-hover__list__item d-flex justify-content-between align-items-center">
+                                        <img src="assets/img/cart/cart-1.jpg" alt="Фото товара">
+                                        <div class="cart-hover__text-block">
+                                            <span class="cart-hover__text-block__text cart-hover__text-block__name">Название товара</span>
+                                            <span class="cart-hover__text-block__text">Количество: 1шт</span>
+                                            <span class="cart-hover__text-block__text cart-hover__text-block__price">180 руб</span>
+                                        </div>
+                                        <img src="assets/img/icons/close.svg" class="cart-hover__list__item__delete" alt="Удалить">
+                                    </li>
+                                </ul>
+                                <div class="cart-hover__bottom">
+                                    <div class="cart__card__line d-flex justify-content-between align-items-center">
+                                        <span class="cart__card__line__text">Стоимость без скидки:</span>
+                                        <span class="cart__card__value">540 руб</span>
+                                    </div>
+                                    <div class="cart__card__line d-flex justify-content-between align-items-center">
+                                        <span class="cart__card__line__text">Cкидка:</span>
+                                        <span class="cart__card__value">20%</span>
+                                    </div>
+                                    <div class="cart__card__line cart__card__line-last d-flex justify-content-between align-items-center">
+                                        <span class="cart__card__line__text">Итого:</span>
+                                        <span class="cart__card__value">432 руб</span>
+                                    </div>
+                                    <button type="button" class="btn common-btn common-btn-accent cart__btn">Заказать</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -271,7 +311,7 @@
                             <span class="cart__card__value">20%</span>
                         </div>
                         <div class="cart__card__line cart__card__line-last d-flex justify-content-between align-items-center">
-                            <span class="cart__card__line__text">Стоимость со скридкой:</span>
+                            <span class="cart__card__line__text">Итого:</span>
                             <span class="cart__card__value">432 руб</span>
                         </div>
                         <button type="button" class="btn common-btn common-btn-accent cart__btn">Заказать</button>

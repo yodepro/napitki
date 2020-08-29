@@ -495,4 +495,7 @@
     $('.cart__table__cell__delete').on('click', function () {
        $(this).parents('.cart__table__row').hide();
     });
+    $('.cart-hover__list__item__delete').on('click', function () {
+       $(this).parents('.cart-hover__list__item').addClass('cart-hover__list__item-hidden');
+    });
 })(jQuery);

@@ -45,10 +45,12 @@ body {
 .body-overflow {
     overflow: hidden !important;
 }
+
 .common-label {
     width: 100%;
     margin-bottom: 20px;
 }
+
 .common-input {
     width: 100%;
     height: 44px;
@@ -59,11 +61,13 @@ body {
     background-color: #FFF;
     padding: 0px 15px;
 }
+
 .common-input:focus {
     outline: none;
     box-shadow: none;
     border: 1px solid var(--dark-grey);
 }
+
 .common-select {
     background-color: #FFF;
     padding: 0px 15px;
@@ -74,6 +78,7 @@ body {
     border-radius: 0px;
     border: 1px solid var(--dark-grey);
 }
+
 .common-title {
     font-family: 'Hagin Caps';
     font-style: normal;
@@ -319,6 +324,18 @@ span.ruble-icon {
 
 .menu .menu__item__link {
     margin-right: 40px;
+}
+
+.header__cart-wrap {
+    position: relative;
+    margin-bottom: -14px;
+    height: 65px;
+    display: flex;
+    margin-top: -14px;
+}
+
+.header__cart-wrap:hover .cart-hover {
+    display: block;
 }
 
 .cart {
@@ -775,28 +792,34 @@ footer {
 .cart__table .cart__table__row {
     border: 1px solid var(--dark-grey);
 }
+
 .cart__table__cell .item__price__li__right {
     margin: 0px auto;
     font-size: 24px;
     line-height: 28px;
     color: var(--dark);
 }
+
 .cart__table__cell .item__price__li__count {
     margin: 0px 15px;
 }
+
 .cart__table__cell .item__price__li__price {
     font-size: 24px;
     line-height: 28px;
     color: var(--dark);
 }
+
 .cart__table__cell .product__id {
     margin-bottom: 0;
 }
+
 .cart__table__cell__delete {
     filter: brightness(0%);
     height: 20px;
     cursor: pointer;
 }
+
 .cart__card {
     width: 100%;
     max-width: 330px;
@@ -805,32 +828,84 @@ footer {
     padding: 30px;
     border: 1px solid var(--dark-grey);
 }
+
 .cart__time__span {
     margin: 0px 10px;
 }
+
 .cart__btn {
     width: 100%;
     height: 44px;
     font-size: 20px;
     line-height: 20px;
 }
+
 .cart__card__price {
     width: 100%;
 }
+
 .cart__card__line {
     margin-bottom: 10px;
 }
+
 .cart__card__line-last {
     margin-bottom: 20px;
 }
-.cart__card__line-last .cart__card__line__text{
+
+.cart__card__line-last .cart__card__line__text {
     font-size: 16px;
     line-height: 16px;
     color: var(--dark);
 }
-.cart__card__line-last .cart__card__value{
+
+.cart__card__line-last .cart__card__value {
     font-size: 22px;
     line-height: 22px;
     color: var(--dark);
     font-weight: bold;
+}
+
+.cart-hover {
+    display: none;
+    overflow-y: auto;
+    max-height: 500px;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid var(--dark-grey);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 63px;
+    right: 0px;
+}
+
+.cart-hover__list__item {
+    margin: 10px 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--dark-grey);
+}
+
+.cart-hover__text-block__text {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cart-hover__text-block__name {
+    font-weight: bold;
+}
+
+.cart-hover__text-block__price {
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 0;
+}
+
+.cart-hover__list__item__delete {
+    height: 12px;
+    filter: brightness(0%);
+    cursor: pointer;
+}
+
+.cart-hover__list__item-hidden {
+    display: none !important;
 }
