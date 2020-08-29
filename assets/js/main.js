@@ -462,8 +462,7 @@
         if (count > 1) {
             count--;
             $(this).next('.item__price__li__count').html(count);
-        }
-        else {
+        } else {
             $(this).next('.item__price__li__count').html('0');
             $(this).addClass('item__price__li__inactive');
         }
@@ -474,10 +473,26 @@
         if (count < 98) {
             count++;
             $(this).prev('.item__price__li__count').html(count);
-        }
-        else {
+        } else {
             $(this).prev('.item__price__li__count').html('99');
             $(this).addClass('item__price__li__inactive');
         }
+    });
+    // // Логика работы стоимовти в корзине
+    // $('.cart__table__cell .item__price__li__plus').on('click', function () {
+    //     let price = Number($(this).parents('.cart__table__cell').prev('.cart__table__cell').children('.item__price__li__left').children('.item__price__li__price').children('span').html());
+    //     let count = Number($(this).prev('.item__price__li__count').html());
+    //     price = price * count;
+    //     $(this).parents('.cart__table__cell').next('.cart__table__cell').children('.item__price__li__price').children('span').html(price);
+    // });
+    // $('.cart__table__cell .item__price__li__minus').on('click', function () {
+    //     let price = Number($(this).parents('.cart__table__cell').prev('.cart__table__cell').children('.item__price__li__left').children('.item__price__li__price').children('span').html());
+    //     let count = Number($(this).next('.item__price__li__count').html());
+    //     price = price * count;
+    //     $(this).parents('.cart__table__cell').next('.cart__table__cell').children('.item__price__li__price').children('span').html(price);
+    // });
+    // Логика удаления товара из корзины
+    $('.cart__table__cell__delete').on('click', function () {
+       $(this).parents('.cart__table__row').hide();
     });
 })(jQuery);
