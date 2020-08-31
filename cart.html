@@ -279,17 +279,21 @@
                         </label>
                         <label for="phone" class="common-label">
                             <span>Телефон</span>
-                            <input type="text" id="phone" name="phone" class="form-control common-input"
+                            <input type="tel" id="phone" name="phone" class="form-control common-input"
                                    placeholder="+7(___)___-__-__">
                         </label>
-                        <label for="date" class="common-label">
+                        <label for="date-select" class="common-label">
                             <span>Дата</span>
-                            <select name="date" class="common-select" id="date">
+                            <select name="date-select" class="common-select cart__date-select" id="date-select">
                                 <option disabled hidden selected>Дата</option>
                                 <option value="today">Сегодня</option>
                                 <option value="tomorrow">Завтра</option>
-                                <option value="Other">Другой день</option>
+                                <option value="other">Другой день</option>
                             </select>
+                        </label>
+                        <label for="date" class="common-label date-label">
+                            <span>Какой день</span>
+                            <input type="date" id="date" name="date" class="form-control common-input">
                         </label>
                         <div class="cart__time-wrap d-flex justify-content-between align-items-center">
                             <label for="from-time" class="common-label">
@@ -392,6 +396,8 @@
 <script src="assets/js/ajax-mail.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/spotlight.bundle.js"></script>
+<script src="assets/js/cleave.min.js"></script>
+<script src="assets/js/jquery.mask.min.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

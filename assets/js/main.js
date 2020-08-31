@@ -478,7 +478,7 @@
             $(this).addClass('item__price__li__inactive');
         }
     });
-    // // Логика работы стоимовти в корзине
+    // // Логика работы стоимоcти в корзине
     // $('.cart__table__cell .item__price__li__plus').on('click', function () {
     //     let price = Number($(this).parents('.cart__table__cell').prev('.cart__table__cell').children('.item__price__li__left').children('.item__price__li__price').children('span').html());
     //     let count = Number($(this).prev('.item__price__li__count').html());
@@ -497,5 +497,22 @@
     });
     $('.cart-hover__list__item__delete').on('click', function () {
        $(this).parents('.cart-hover__list__item').addClass('cart-hover__list__item-hidden');
+    });
+    // Логика масок ввода
+    $('input[type="tel"]').mask('+9 (999) 999-99-99');
+    $('input[type="tel"]').toArray().forEach(function (field) {
+        new Cleave(field, {
+            delimiters: ['+', ' (', ') ', '-', '-'],
+            blocks: [0, 1, 3, 3, 2, 2],
+            uppercase: true
+        });
+    });
+    // Логика работы селекта с выбором даты
+    $('.cart__date-select').on('change', function (){
+       if ($(this).val() == 'other') {
+           $('.date-label').show();
+       } else {
+           $('.date-label').hide();
+       }
     });
 })(jQuery);

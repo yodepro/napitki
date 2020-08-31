@@ -59,7 +59,7 @@ body {
     border-radius: 0px;
     border: 1px solid var(--dark-grey);
     background-color: #FFF;
-    padding: 0px 15px;
+    padding: 9px 15px;
 }
 
 .common-input:focus {
@@ -127,6 +127,7 @@ span.ruble-icon {
     font-family: 'Bebas Neue';
     font-weight: bold;
     cursor: pointer;
+    padding-top: 2px;
 }
 
 .common-owl {
@@ -908,4 +909,7 @@ footer {
 
 .cart-hover__list__item-hidden {
     display: none !important;
+}
+.date-label {
+    display: none;
 }
