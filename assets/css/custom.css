@@ -319,7 +319,7 @@ span.ruble-icon {
 }
 
 .menu__item__link:hover {
-    color: #FFF;
+    color: var(--dark);
 }
 
 .menu-left {
