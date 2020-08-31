@@ -913,3 +913,6 @@ footer {
 .date-label {
     display: none;
 }
+#scrollUp {
+    z-index: 2!important;
+}

@@ -470,11 +470,11 @@
     $('.item__price__li__plus').on('click', function () {
         let count = Number($(this).prev('.item__price__li__count').html());
         $(this).prev('.item__price__li__count').prev('.item__price__li__minus').removeClass('item__price__li__inactive');
-        if (count < 98) {
+        if (count < 998) {
             count++;
             $(this).prev('.item__price__li__count').html(count);
         } else {
-            $(this).prev('.item__price__li__count').html('99');
+            $(this).prev('.item__price__li__count').html('999');
             $(this).addClass('item__price__li__inactive');
         }
     });
