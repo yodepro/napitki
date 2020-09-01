@@ -478,6 +478,26 @@
             $(this).addClass('item__price__li__inactive');
         }
     });
+    // Логика работы корзины
+    if (screen.width < 991) {
+        $('.header__cart-wrap').on('click', function () {
+            $('.cart-hover').toggleClass('hide-cart');
+        });
+        $('.cart-hover').on('click', function () {
+            $(this).toggleClass('hide-cart');
+        });
+        $('.header__cart-wrap').on('mouseleave', function () {
+            $('.cart-hover').removeClass('hide-cart');
+        });
+    } else {
+        $('.header__cart-wrap').on('mouseenter', function () {
+            $('.cart-hover').addClass('hide-cart');
+        });
+        $('.header__cart-wrap').on('mouseleave', function () {
+            $('.cart-hover').removeClass('hide-cart');
+        });
+    }
+
     // // Логика работы стоимоcти в корзине
     // $('.cart__table__cell .item__price__li__plus').on('click', function () {
     //     let price = Number($(this).parents('.cart__table__cell').prev('.cart__table__cell').children('.item__price__li__left').children('.item__price__li__price').children('span').html());
@@ -493,10 +513,10 @@
     // });
     // Логика удаления товара из корзины
     $('.cart__table__cell__delete').on('click', function () {
-       $(this).parents('.cart__table__row').hide();
+        $(this).parents('.cart__table__row').hide();
     });
     $('.cart-hover__list__item__delete').on('click', function () {
-       $(this).parents('.cart-hover__list__item').addClass('cart-hover__list__item-hidden');
+        $(this).parents('.cart-hover__list__item').addClass('cart-hover__list__item-hidden');
     });
     // Логика масок ввода
     $('input[type="tel"]').mask('+9 (999) 999-99-99');
@@ -508,12 +528,12 @@
         });
     });
     // Логика работы селекта с выбором даты
-    $('.cart__date-select').on('change', function (){
-       if ($(this).val() == 'other') {
-           $('.date-label').show();
-       } else {
-           $('.date-label').hide();
-       }
+    $('.cart__date-select').on('change', function () {
+        if ($(this).val() == 'other') {
+            $('.date-label').show();
+        } else {
+            $('.date-label').hide();
+        }
     });
     var myLightbox = GLightbox({
         'selector': '.spotlight'

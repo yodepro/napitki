@@ -332,8 +332,12 @@ span.ruble-icon {
     margin-top: -14px;
 }
 
-.header__cart-wrap:hover .cart-hover {
-    display: block;
+/*.header__cart-wrap:hover .cart-hover {*/
+/*    display: block;*/
+/*}*/
+
+.hide-cart {
+    display: block !important;
 }
 
 .cart {
