@@ -515,4 +515,7 @@
            $('.date-label').hide();
        }
     });
+    var myLightbox = GLightbox({
+        'selector': '.spotlight'
+    });
 })(jQuery);
