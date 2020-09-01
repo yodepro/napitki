@@ -280,16 +280,10 @@ span.ruble-icon {
 }
 
 .header__club {
-    font-family: 'Bebas Neue';
-    font-weight: bold;
     font-size: 24px;
     line-height: 24px;
-    text-align: right;
-    color: var(--dark);
     margin-left: 88px;
-    padding: 14px 32px;
     height: 48px;
-    background-color: var(--accent);
 }
 
 .header__bottom {
@@ -515,13 +509,11 @@ footer {
 }
 
 .mobile-menu .header__club {
-    font-family: 'Bebas Neue';
-    font-weight: bold;
     font-size: 24px;
     line-height: 24px;
     text-align: right;
-    color: var(--dark);
-    padding: 9px 32px;
+    padding: 0px 32px;
+    padding-top: 2px;
     height: 48px;
     max-height: 48px;
     background-color: var(--accent);
