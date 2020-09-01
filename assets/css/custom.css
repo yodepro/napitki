@@ -766,6 +766,7 @@ footer {
     display: block;
     width: 100%;
     margin-bottom: 50px;
+    text-align: left;
 }
 
 .category__list__li {
