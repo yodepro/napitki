@@ -289,6 +289,7 @@ span.ruble-icon {
 .header__bottom {
     background-color: #FFF;
     top: 0;
+    border-bottom: 1px solid #EEE;
 }
 
 .header__bottom__content {
