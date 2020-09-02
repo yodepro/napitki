@@ -519,14 +519,7 @@
         $(this).parents('.cart-hover__list__item').addClass('cart-hover__list__item-hidden');
     });
     // Логика масок ввода
-    $('input[type="tel"]').mask('+9 (999) 999-99-99');
-    $('input[type="tel"]').toArray().forEach(function (field) {
-        new Cleave(field, {
-            delimiters: ['+', ' (', ') ', '-', '-'],
-            blocks: [0, 1, 3, 3, 2, 2],
-            uppercase: true
-        });
-    });
+    $('input[type="tel"]').inputmask('+7(999)999-99-99');
     // Логика работы селекта с выбором даты
     $('.cart__date-select').on('change', function () {
         if ($(this).val() == 'other') {
