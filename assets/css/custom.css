@@ -765,12 +765,19 @@ footer {
     margin-bottom: 50px;
     text-align: left;
 }
-
+.category__list {
+    margin-left: -16px;
+    margin-right: -16px;
+}
 .category__list__li {
     max-width: 270px;
     margin-bottom: 30px;
+    margin-right: 16px;
+    margin-left: 16px;
 }
-
+.category__list__li:last-child {
+    margin-right: auto;
+}
 .item img {
     width: 100%;
 }
