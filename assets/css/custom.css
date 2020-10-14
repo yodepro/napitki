@@ -915,7 +915,9 @@ footer {
     padding-bottom: 10px;
     border-bottom: 1px solid var(--dark-grey);
 }
-
+.cart-hover__text-block {
+    margin: 0 23px;
+}
 .cart-hover__text-block__text {
     display: block;
     margin-bottom: 5px;
@@ -923,6 +925,7 @@ footer {
 
 .cart-hover__text-block__name {
     font-weight: bold;
+    text-overflow: ellipsis;
 }
 
 .cart-hover__text-block__price {
