@@ -132,7 +132,7 @@ span.ruble-icon {
 
 .common-owl {
     width: 90%;
-    max-width: 874px;
+    max-width: 885px;
     margin: 0px auto;
 }
 
@@ -413,6 +413,26 @@ span.ruble-icon {
 .promotions__content, .novelty__content {
     position: relative;
     width: 100%;
+}
+
+.promotions__content .item {
+    position: relative;
+}
+
+.item__badge {
+    position: absolute;
+    width: 98px;
+    height: 32px;
+    right: -8px;
+    top: 16px;
+    background: #FDDD04;
+    font-family: 'Hagin Caps';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 19px;
+    text-align: center;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 
 .promotions__title, .novelty__title {
@@ -765,19 +785,23 @@ footer {
     margin-bottom: 50px;
     text-align: left;
 }
+
 .category__list {
     margin-left: -16px;
     margin-right: -16px;
 }
+
 .category__list__li {
     max-width: 270px;
     margin-bottom: 30px;
     margin-right: 16px;
     margin-left: 16px;
 }
+
 .category__list__li:last-child {
     margin-right: auto;
 }
+
 .item img {
     width: 100%;
 }
@@ -915,9 +939,11 @@ footer {
     padding-bottom: 10px;
     border-bottom: 1px solid var(--dark-grey);
 }
+
 .cart-hover__text-block {
     margin: 0 23px;
 }
+
 .cart-hover__text-block__text {
     display: block;
     margin-bottom: 5px;
