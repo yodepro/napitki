@@ -110,8 +110,6 @@
             }
         }
     })
-
-
     /* Testimonial active */
     $('.testimonial-active').owlCarousel({
         loop: true,
@@ -445,6 +443,11 @@
                 items: 4
             },
         }
+    })
+    gallery.on('changed.owl.carousel', function(event) {
+        var myLightbox2 = GLightbox({
+            'selector': '#gallery a'
+        });
     })
     // Логика работы мобильного меню
     $('.menu-burger').on('click', function () {

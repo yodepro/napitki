@@ -704,7 +704,7 @@ footer {
     padding-left: 55px;
     padding-right: 55px;
     position: relative;
-
+    max-width: 570px;
 }
 
 .product__left-gallery .owl-stage-outer {
