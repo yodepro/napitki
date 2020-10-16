@@ -498,6 +498,8 @@ footer {
 }
 
 .mobile-menu {
+    padding-bottom: 20px;
+    overflow-y: auto;
     display: none;
     position: fixed;
     z-index: 3;
