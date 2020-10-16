@@ -408,6 +408,7 @@ span.ruble-icon {
 
 .promotions-list-mobile .item, .novelty-list-mobile .item {
     margin-bottom: 32px;
+    position: relative;
 }
 
 .promotions__content, .novelty__content {
