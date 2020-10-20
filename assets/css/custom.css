@@ -825,6 +825,7 @@ footer {
 .cart__table-wrap {
     width: 100%;
     overflow: auto;
+    margin-bottom: 30px;
 }
 
 .cart__table {
@@ -834,6 +835,26 @@ footer {
 
 .cart__table {
     border-collapse: collapse;
+}
+.cart__table__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    border: 1px solid var(--dark-grey);
+    padding: 20px;
+}
+.cart__table__row__center {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart__table__row__price-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
 }
 
 .cart__table thead .cart__table__row {
