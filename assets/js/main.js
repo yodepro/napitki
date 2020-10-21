@@ -537,4 +537,10 @@
     var myLightbox = GLightbox({
         'selector': '.spotlight'
     });
+    $('.loyalty-first__down-arrow-link').on('click', function() {
+        var destination = $(this).data('destination');
+        $('html, body').animate({
+            scrollTop: $(destination).offset().top
+        }, 1000);
+    });
 })(jQuery);
