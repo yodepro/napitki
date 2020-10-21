@@ -485,12 +485,15 @@
     if (screen.width < 991) {
         $('.header__cart-wrap').on('click', function () {
             $('.cart-hover').toggleClass('hide-cart');
+            $('body').toggleClass('lock-body');
         });
         $('.cart-hover').on('click', function () {
             $(this).toggleClass('hide-cart');
+            $('body').toggleClass('lock-body');
         });
         $('.header__cart-wrap').on('mouseleave', function () {
             $('.cart-hover').removeClass('hide-cart');
+            $('body').removeClass('lock-body');
         });
     } else {
         $('.header__cart-wrap').on('mouseenter', function () {

@@ -41,7 +41,9 @@ body {
     overflow-x: hidden;
     position: relative;
 }
-
+.lock-body {
+    overflow: hidden;
+}
 .body-overflow {
     overflow: hidden !important;
 }
@@ -956,6 +958,7 @@ footer {
     position: absolute;
     top: 63px;
     right: 0px;
+    z-index: 2;
 }
 
 .cart-hover__list__item {
