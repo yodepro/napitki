@@ -540,7 +540,7 @@
     $('.loyalty-first__down-arrow-link').on('click', function() {
         var destination = $(this).data('destination');
         $('html, body').animate({
-            scrollTop: $(destination).offset().top
+            scrollTop: $(destination).offset().top - $('.header__bottom').height()
         }, 1000);
     });
 })(jQuery);

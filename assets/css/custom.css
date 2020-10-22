@@ -1104,6 +1104,7 @@ footer {
     margin: 0px auto;
     margin-top: 30px;
     width: fit-content;
+    width: -moz-fit-content;
     display: block;
     cursor: pointer;
 }
