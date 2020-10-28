@@ -259,7 +259,8 @@ span.ruble-icon {
 }
 
 .header__top {
-    padding: 4px 0px;
+    position: relative;
+    padding: 16px 0px;
     width: 100%;
 }
 
@@ -281,6 +282,10 @@ span.ruble-icon {
 
 .header__logo__img {
     height: 72px;
+    top: 10px;
+    margin-left: -28px;
+    left: 50%;
+    position: absolute;
 }
 
 .header__club {
@@ -298,6 +303,7 @@ span.ruble-icon {
 
 .header__bottom__content {
     width: 100%;
+    position: relative;
     padding: 14px 0px 10px 0px;
 }
 
@@ -382,7 +388,11 @@ span.ruble-icon {
 }
 
 .header__bottom__img {
-    margin-right: 50px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    display: block;
+    margin-left: -80px;
     filter: brightness(0%);
 }
 
