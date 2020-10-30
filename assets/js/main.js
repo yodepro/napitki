@@ -110,6 +110,8 @@
             }
         }
     })
+
+
     /* Testimonial active */
     $('.testimonial-active').owlCarousel({
         loop: true,
@@ -458,24 +460,69 @@
         $('.mobile-menu').slideUp();
         $('body').removeClass('body-overflow');
     });
+    // добавления в корзину
+    function addToCart(id,count,number){
+        $('.lodding-shopping').addClass('active');
+        var post_id = id,
+            counter = count,
+            field = number;
+        var data = {
+            'action': 'add_cart',
+            'ID': post_id,
+            'counter': counter,
+            'field': field,
+            'page': page_id_ajax
+        };
+        $('.cart-append-ajax').html('');
+        if(post_id>0){
+            $.ajax({
+                type: 'POST',
+                url: '/wp-admin/admin-ajax.php',
+                data: data,
+                success: function(data) {
+                    if(data.cart == true && data.count_cart==0){
+                        document.location.replace("/cart");
+                    } else {
+                        $('.cart-counters-js').attr('data-count',data.count_cart);
+                        $('.cart-append-ajax').html(data.cart_header);
+                        $('.cart-result-js-2').html(data.cart_price);
+                        $('.cart-result-js-sale').html(data.procent);
+                        $('.cart-result-js-1').html(data.cart_no_sale);
+                        if(data.cart == true){
+                            $("body .js-card-"+data.element).hide();
+                        }
+                    }
+                    $('.lodding-shopping').removeClass('active');
+                },
+                dataType: 'json'
+            });
+        }
+    }
     // Логика работы колиества товаров
     $('.item__price__li__minus').on('click', function () {
+        let post_id = $(this).attr('data-id'),
+            item = $(this).attr('data-item');
         let count = Number($(this).next('.item__price__li__count').html());
         $(this).next('.item__price__li__count').next('.item__price__li__plus').removeClass('item__price__li__inactive');
         if (count > 1) {
             count--;
             $(this).next('.item__price__li__count').html(count);
+            addToCart(post_id,count,item);
         } else {
             $(this).next('.item__price__li__count').html('0');
             $(this).addClass('item__price__li__inactive');
+            addToCart(post_id,0,item);
         }
     });
     $('.item__price__li__plus').on('click', function () {
+        let post_id = $(this).attr('data-id'),
+            item = $(this).attr('data-item');
         let count = Number($(this).prev('.item__price__li__count').html());
         $(this).prev('.item__price__li__count').prev('.item__price__li__minus').removeClass('item__price__li__inactive');
         if (count < 998) {
             count++;
             $(this).prev('.item__price__li__count').html(count);
+            addToCart(post_id,count,item);
         } else {
             $(this).prev('.item__price__li__count').html('999');
             $(this).addClass('item__price__li__inactive');
@@ -483,19 +530,16 @@
     });
     // Логика работы корзины
     if (screen.width > 991) {
-    //     $('.header__cart-wrap').on('click', function () {
-    //         $('.cart-hover').toggleClass('hide-cart');
-    //         $('body').toggleClass('lock-body');
-    //     });
-    //     $('.cart-hover').on('click', function () {
-    //         $(this).toggleClass('hide-cart');
-    //         $('body').toggleClass('lock-body');
-    //     });
-    //     $('.header__cart-wrap').on('mouseleave', function () {
-    //         $('.cart-hover').removeClass('hide-cart');
-    //         $('body').removeClass('lock-body');
-    //     });
-    // } else {
+//         $('.header__cart-wrap').on('click', function () {
+//             $('.cart-hover').toggleClass('hide-cart');
+//         });
+//         $('.cart-hover').on('click', function () {
+//             $(this).toggleClass('hide-cart');
+//         });
+//         $('.header__cart-wrap').on('mouseleave', function () {
+//             $('.cart-hover').removeClass('hide-cart');
+//         });
+//     } else {
         $('.header__cart-wrap').on('mouseenter', function () {
             $('.cart-hover').addClass('hide-cart');
         });
@@ -503,7 +547,37 @@
             $('.cart-hover').removeClass('hide-cart');
         });
     }
+    // // яндекс карты метки
+    if ($("#shopsmap").length > 0) {
+        ymaps.ready(init);
+        function init () {
 
+            var myMap = new ymaps.Map('shopsmap', {
+                    center: [55.76, 37.64],
+                    zoom: 10,
+                    controls: ['zoomControl', 'fullscreenControl']
+                }, {
+                    searchControlProvider: '',
+                    zoomControlPosition: { right: 10, top: 50 }
+                }),
+                objectManager = new ymaps.ObjectManager({
+                    clusterize: true,
+                    geoObjectOpenBalloonOnClick: false,
+                    clusterOpenBalloonOnClick: false
+                });
+            myMap.geoObjects.add(objectManager);
+            objectManager.add(collection);
+            function getIdEvent (e) {
+                var objectId = e.get('objectId');
+                $('.map__sidebar-hidden').removeClass('active');
+                $('.js-open-'+objectId).addClass('active');
+            }
+            objectManager.objects.events.add('click', getIdEvent);
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                myMap.behaviors.disable('drag');
+            }
+        }
+    }
     // // Логика работы стоимоcти в корзине
     // $('.cart__table__cell .item__price__li__plus').on('click', function () {
     //     let price = Number($(this).parents('.cart__table__cell').prev('.cart__table__cell').children('.item__price__li__left').children('.item__price__li__price').children('span').html());
@@ -519,10 +593,144 @@
     // });
     // Логика удаления товара из корзины
     $('.cart__table__cell__delete').on('click', function () {
-        $(this).parents('.cart__table__row').hide();
+        $('.lodding-shopping').addClass('active');
+        let post_id = $(this).attr('data-id'),
+            field = $(this).attr('data-item'),
+            this_i = $(this);
+
+        var data = {
+            'action': 'del_cart',
+            'ID': post_id,
+            'field': field,
+            'page': page_id_ajax
+        };
+        $('.cart-append-ajax').html('');
+        if(post_id>0){
+            $.ajax({
+                type: 'POST',
+                url: '/wp-admin/admin-ajax.php',
+                data: data,
+                success: function(data) {
+                    if(data.cart == true && data.count_cart==0){
+                        document.location.replace("/cart");
+                    } else {
+                        $('.cart-counters-js').attr('data-count',data.count_cart);
+                        $('.cart-append-ajax').html(data.cart_header);
+                        $('.cart-result-js-2').html(data.cart_price);
+                        $('.cart-result-js-sale').html(data.procent);
+                        $('.cart-result-js-1').html(data.cart_no_sale);
+                        this_i.parents('.cart__table__row').hide();
+                    }
+                    $('.lodding-shopping').removeClass('active');
+                },
+                dataType: 'json'
+            });
+        }
     });
-    $('.cart-hover__list__item__delete').on('click', function () {
-        $(this).parents('.cart-hover__list__item').addClass('cart-hover__list__item-hidden');
+    $('body').on('click','.map__sidebar__close', function () {
+        $(this).parent().removeClass('active');
+    });
+    $('body').on('click','.cart-hover__list__item__delete', function () {
+        $('.lodding-shopping').addClass('active');
+        let post_id = $(this).attr('data-id'),
+            field = $(this).attr('data-item');
+        var data = {
+            'action': 'del_cart',
+            'ID': post_id,
+            'field': field,
+            'page': page_id_ajax
+        };
+        $('.cart-append-ajax').html('');
+        if(post_id>0){
+            $.ajax({
+                type: 'POST',
+                url: '/wp-admin/admin-ajax.php',
+                data: data,
+                success: function(data) {
+                    if(data.cart == true && data.count_cart==0){
+                        document.location.replace("/cart");
+                    } else {
+                        $('.cart-counters-js').attr('data-count',data.count_cart);
+                        $('.cart-append-ajax').html(data.cart_header);
+                        $('.cart-result-js-2').html(data.cart_price);
+                        $('.cart-result-js-sale').html(data.procent);
+                        $('.cart-result-js-1').html(data.cart_no_sale);
+                        if(data.cart != true){
+                            $("body .js-card-"+data.element).each(function () {
+                                $(this).text("0");
+                            });
+                        } else {
+                            $("body .js-card-"+data.element).each(function () {
+                                $(this).hide();
+                            });
+                        }
+                        $('.lodding-shopping').removeClass('active');
+                    }
+                },
+                dataType: 'json'
+            });
+        }
+    });
+    function validatePhone(phoneNumber) {
+        const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+        return re.test(phoneNumber);
+    }
+    $(".js-button-cart").submit(function() { return false; });
+    $(".js-button-cart").on("click", function(){
+
+        var form   = $(this).parents('.js-order-cart'),
+            name = form.find('#name').val(),
+            phone = form.find('#phone').val(),
+            date = form.find('#date-select option:selected').val(),
+            date_current = form.find('#date').val(),
+            from_time = form.find('#from-time').val(),
+            to_time = form.find('#to-time').val();
+        var date_cur = true;
+        if(!validatePhone(phone)){
+            form.find('#phone').addClass('error');
+        } else {
+            form.find('#phone').removeClass('error');
+        }
+        if(name.length > 2){
+            form.find('#name').removeClass('error');
+        } else {
+            form.find('#name').addClass('error');
+        }
+        if(date != "today" && date != "tomorrow"){
+            if(date=="other" && date_current.length<5){
+                form.find('#date').addClass('error');
+                date_cur = false;
+            } else {
+                form.find('#date').removeClass('error');
+                date_cur = true;
+            }
+        }
+        /*if(from_time.length < 1){
+            form.find('#from-time').addClass('error');
+        } else {
+           form.find('#from-time').removeClass('error');
+       }*/
+        if(to_time.length < 1 ){
+            form.find('#to-time').addClass('error');
+        } else {
+            form.find('#to-time').removeClass('error');
+        }
+        if(name.length > 2 && validatePhone(phone) && date_cur==true  && to_time.length>1){
+            $('.lodding-shopping').addClass('active');
+            $.ajax({
+                url: "/wp-admin/admin-ajax.php",
+                type: "POST",
+                data: 'action=order_cart&' + form.serialize(),
+                dataType: "json",
+                success: function(data){
+                    if(data.message) {
+                        document.location.replace("/cart?order=send");
+                        $('.lodding-shopping').removeClass('active');
+                    }
+                }
+            });
+        }
+        return false;
     });
     // Логика масок ввода
     $('input[type="tel"]').inputmask('+7(999)999-99-99');
@@ -545,5 +753,13 @@
     });
     $('.overlay__btn').on('click', function () {
         $('.overlay').hide();
+        document.cookie = "popup_close=true";
     });
+
+    /* Safari style only */
+    var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+    if (isSafari) {
+        $('<link rel="stylesheet" href="/wp-content/themes/beer/assets/css/safari.css">').appendTo('body');
+    }
+
 })(jQuery);

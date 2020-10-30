@@ -9,6 +9,7 @@
     background-color: var(--accent);
 }
 
+
 ::selection {
     background-color: var(--accent);
 }
@@ -449,7 +450,9 @@ span.ruble-icon {
     text-align: center;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
-
+.item__badge-blue {
+    background: #3DBD8F;
+}
 .promotions__title, .novelty__title {
     width: 100%;
     margin-bottom: 32px;
@@ -526,8 +529,9 @@ footer {
 }
 
 .mobile-menu .header__bottom__img {
-    margin: 0px auto;
+    margin: 0px above;
     display: block;
+    position: relative;
 }
 
 .mobile-menu .menu {
@@ -769,6 +773,7 @@ footer {
 }
 
 .product__text {
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -938,6 +943,7 @@ footer {
     height: 44px;
     font-size: 20px;
     line-height: 20px;
+    margin-bottom: 20px;
 }
 
 .cart__card__price {
@@ -1005,7 +1011,9 @@ footer {
     line-height: 18px;
     margin-bottom: 0;
 }
-
+.cart-hover__text-block__price > span:first-child {
+    color: #eb1a1a;
+}
 .cart-hover__list__item__delete {
     height: 12px;
     filter: brightness(0%);
@@ -1344,8 +1352,7 @@ footer {
     font-size: 14px;
     line-height: 139.3%;
 }
-
-@media (max-width: 760px) {
+@media (max-width:760px)  {
     .yandex-map {
         max-height: 400px;
     }
@@ -1384,4 +1391,16 @@ footer {
 .overlay__text {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.item__badge.item__badge_new {
+    background: #3DBD8F;
+    color: #fff;
+}
+.item__badge_with-new{
+    float:left;
+    margin-right: 20px;
+}
+.pro-dec-social li a {
+    padding: 8px 1px;
 }

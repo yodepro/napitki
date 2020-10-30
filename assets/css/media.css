@@ -48,6 +48,10 @@
         left: 50%;
     }
 
+    .category__list__li:last-child {
+        margin: auto;
+    }
+
     .header__club {
         background-color: transparent;
         height: auto;
