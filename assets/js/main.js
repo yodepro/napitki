@@ -773,6 +773,7 @@
     $('#to-time').datepicker({
         timepicker: true,
         minDate: now,
+        startDate: now,
         dateFormat: ' ',
         format: 'HH:mm',
         classes: 'only-timepicker',

@@ -1411,3 +1411,6 @@ footer {
 .only-timepicker .datepicker--time {
     border-top: none;
 }
+.form-control[readonly] {
+    background: white;
+}
