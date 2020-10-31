@@ -734,6 +734,8 @@
     });
     // Логика масок ввода
     $('input[type="tel"]').inputmask('+7(999)999-99-99');
+    $('input[name="date"]').inputmask("dd.mm.yyyy",  {placeholder: "__.__.____"});
+    $('input[name="to-time"]').inputmask("hh:mm", {placeholder: "__:__"});
     // Логика работы селекта с выбором даты
     $('.cart__date-select').on('change', function () {
         if ($(this).val() == 'other') {
@@ -761,5 +763,37 @@
     if (isSafari) {
         $('<link rel="stylesheet" href="/wp-content/themes/beer/assets/css/safari.css">').appendTo('body');
     }
+    let now = new Date;
+    console.log(now.getHours());
+    console.log(now.getMinutes());
+    $('#date').datepicker({
+        timepicker: false,
+        minDate: now,
+    });
+    $('#to-time').datepicker({
+        timepicker: true,
+        minDate: now,
+        dateFormat: ' ',
+        format: 'HH:mm',
+        classes: 'only-timepicker',
+        onSelect: function(fd, d, picker) {
+            if (d < now) {
+                return;
+            }
 
+            if (d.getDate() == now.getDate() &&
+                d.getMonth() == now.getMonth() &&
+                d.getYear() == now.getYear()) {
+                // set minHours to start hours
+                picker.update({
+                    minHours: now.getHours()
+                });
+            } else {
+                // set minHours to 0 hours
+                picker.update({
+                    minHours: 0
+                });
+            }
+        }
+    });
 })(jQuery);
