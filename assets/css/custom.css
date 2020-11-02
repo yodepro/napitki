@@ -1404,9 +1404,9 @@ footer {
 .pro-dec-social li a {
     padding: 8px 1px;
 }
-/*.only-timepicker, .only-datepicker {*/
-/*    margin-top: -40px;*/
-/*}*/
+.only-timepicker, .only-datepicker {
+    margin-top: -40px;
+}
 .only-timepicker .datepicker--nav,
 .only-timepicker .datepicker--content {
     display: none;
