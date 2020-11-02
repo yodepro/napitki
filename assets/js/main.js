@@ -764,11 +764,10 @@
         $('<link rel="stylesheet" href="/wp-content/themes/beer/assets/css/safari.css">').appendTo('body');
     }
     let now = new Date;
-    console.log(now.getHours());
-    console.log(now.getMinutes());
     $('#date').datepicker({
         timepicker: false,
         minDate: now,
+        classes: 'only-datepicker',
     });
     $('#to-time').datepicker({
         timepicker: true,
